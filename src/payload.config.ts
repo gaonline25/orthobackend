@@ -37,6 +37,7 @@ export default buildConfig({
     'https://frontend-self-gamma-99.vercel.app',
     'http://127.0.0.1:5500',
     'https://orthobackend-nu.vercel.app',
+    'https://ortho-fl.web.app',
   ],
   sharp,
   plugins: [],
