@@ -70,6 +70,7 @@ export interface Config {
     users: User;
     media: Media;
     'ortho-spine-page-component': OrthoSpinePageComponent;
+    'new-ortho-spine-page-component': NewOrthoSpinePageComponent;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -80,6 +81,7 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     'ortho-spine-page-component': OrthoSpinePageComponentSelect<false> | OrthoSpinePageComponentSelect<true>;
+    'new-ortho-spine-page-component': NewOrthoSpinePageComponentSelect<false> | NewOrthoSpinePageComponentSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -1181,6 +1183,1217 @@ export interface OrthoSpinePageComponent {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "new-ortho-spine-page-component".
+ */
+export interface NewOrthoSpinePageComponent {
+  id: string;
+  componentName: string;
+  draftBanner?: {
+    show?: boolean | null;
+    label?: string | null;
+    message?: string | null;
+    backgroundColor?: string | null;
+    textColor?: string | null;
+    accentColor?: string | null;
+  };
+  /**
+   * These map to the CSS custom properties used across every page.
+   */
+  themeTokens?: {
+    colors?: {
+      ground?: string | null;
+      surface?: string | null;
+      surface2?: string | null;
+      ink?: string | null;
+      ink2?: string | null;
+      muted?: string | null;
+      line?: string | null;
+      lineStrong?: string | null;
+      primary?: string | null;
+      primaryHover?: string | null;
+      primarySoft?: string | null;
+      onPrimary?: string | null;
+      gold?: string | null;
+      slate?: string | null;
+      teal?: string | null;
+      tealSoft?: string | null;
+    };
+    typography?: {
+      headingFont?: string | null;
+      bodyFont?: string | null;
+      monoFont?: string | null;
+      h1FontSize?: string | null;
+      h2FontSize?: string | null;
+      h3FontSize?: string | null;
+      bodyFontSize?: string | null;
+      bodyLineHeight?: string | null;
+    };
+    layout?: {
+      maxWidth?: string | null;
+      radius?: string | null;
+      radiusSmall?: string | null;
+    };
+  };
+  /**
+   * Used everywhere a phone number, address, or hours appear across the site.
+   */
+  siteContact?: {
+    /**
+     * Used in logo alt text, aria-labels, and structured data.
+     */
+    companyName?: string | null;
+    phoneDisplay?: string | null;
+    /**
+     * Digits only for tel: links, e.g. +14075551234
+     */
+    phoneHref?: string | null;
+    email?: string | null;
+    fax?: string | null;
+    /**
+     * Short note shown next to the fax number.
+     */
+    faxNote?: string | null;
+    website?: string | null;
+    languagesNote?: string | null;
+    address?: {
+      street?: string | null;
+      suite?: string | null;
+      city?: string | null;
+      state?: string | null;
+      zip?: string | null;
+    };
+    hours?: {
+      weekday?: string | null;
+      saturday?: string | null;
+    };
+    parkingNote?: string | null;
+    /**
+     * Paste a Google Maps embed URL to replace the placeholder map graphic.
+     */
+    mapEmbedUrl?: string | null;
+    /**
+     * Drag to reorder.
+     */
+    areasServed?:
+      | {
+          label: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  noticeStrip?: {
+    show?: boolean | null;
+    backgroundColor?: string | null;
+    textColor?: string | null;
+    accentColor?: string | null;
+    /**
+     * Drag to reorder.
+     */
+    items?:
+      | {
+          boldText?: string | null;
+          text: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  header?: {
+    logo?: {
+      mobile?: (string | null) | Media;
+      tablet?: (string | null) | Media;
+      desktop?: (string | null) | Media;
+      large?: (string | null) | Media;
+      alt?: string | null;
+    };
+    /**
+     * Accessible label read for the logo/home link.
+     */
+    brandAriaLabel?: string | null;
+    /**
+     * Drag the ⠿ handle to reorder.
+     */
+    mainNav?:
+      | {
+          label: string;
+          url: string;
+          id?: string | null;
+        }[]
+      | null;
+    ctaButtonText?: string | null;
+    backgroundColor?: string | null;
+    textColor?: string | null;
+  };
+  homePage: {
+    /**
+     * Drag to set the order these sections render in on this page.
+     */
+    sectionOrder?:
+      | {
+          section: 'hero' | 'stats' | 'scope' | 'payment' | 'director' | 'attorneys' | 'cta';
+          id?: string | null;
+        }[]
+      | null;
+    hero?: {
+      show?: boolean | null;
+      className?: string | null;
+      /**
+       * CSS color value (e.g. #FFFFFF, transparent)
+       */
+      backgroundColor?: string | null;
+      textColor?: string | null;
+      eyebrow?: string | null;
+      heading?: string | null;
+      lede?: {
+        root: {
+          type: string;
+          children: {
+            type: any;
+            version: number;
+            [k: string]: unknown;
+          }[];
+          direction: ('ltr' | 'rtl') | null;
+          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+          indent: number;
+          version: number;
+        };
+        [k: string]: unknown;
+      } | null;
+      primaryButtonText?: string | null;
+      secondaryButtonText?: string | null;
+      secondaryButtonUrl?: string | null;
+      note?: {
+        root: {
+          type: string;
+          children: {
+            type: any;
+            version: number;
+            [k: string]: unknown;
+          }[];
+          direction: ('ltr' | 'rtl') | null;
+          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+          indent: number;
+          version: number;
+        };
+        [k: string]: unknown;
+      } | null;
+      card?: {
+        title?: string | null;
+        subtitle?: string | null;
+        /**
+         * Drag to reorder.
+         */
+        steps?:
+          | {
+              number?: string | null;
+              title: string;
+              description: string;
+              id?: string | null;
+            }[]
+          | null;
+      };
+    };
+    statsBand?: {
+      show?: boolean | null;
+      className?: string | null;
+      /**
+       * CSS color value (e.g. #FFFFFF, transparent)
+       */
+      backgroundColor?: string | null;
+      textColor?: string | null;
+      /**
+       * Drag to reorder.
+       */
+      stats?:
+        | {
+            number: string;
+            label: string;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    scope?: {
+      show?: boolean | null;
+      className?: string | null;
+      /**
+       * CSS color value (e.g. #FFFFFF, transparent)
+       */
+      backgroundColor?: string | null;
+      textColor?: string | null;
+      eyebrow?: string | null;
+      heading?: string | null;
+      lede?: {
+        root: {
+          type: string;
+          children: {
+            type: any;
+            version: number;
+            [k: string]: unknown;
+          }[];
+          direction: ('ltr' | 'rtl') | null;
+          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+          indent: number;
+          version: number;
+        };
+        [k: string]: unknown;
+      } | null;
+      /**
+       * Drag to reorder.
+       */
+      cards?:
+        | {
+            title: string;
+            description: string;
+            id?: string | null;
+          }[]
+        | null;
+      footnote?: string | null;
+    };
+    payment?: {
+      show?: boolean | null;
+      className?: string | null;
+      /**
+       * CSS color value (e.g. #FFFFFF, transparent)
+       */
+      backgroundColor?: string | null;
+      textColor?: string | null;
+      eyebrow?: string | null;
+      heading?: string | null;
+      lede?: {
+        root: {
+          type: string;
+          children: {
+            type: any;
+            version: number;
+            [k: string]: unknown;
+          }[];
+          direction: ('ltr' | 'rtl') | null;
+          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+          indent: number;
+          version: number;
+        };
+        [k: string]: unknown;
+      } | null;
+      /**
+       * Drag to reorder. "Track one" (attorney/LOP) typically links to the attorneys section.
+       */
+      tracks?:
+        | {
+            eyebrow?: string | null;
+            title: string;
+            description: string;
+            /**
+             * Left border color for this card.
+             */
+            accentColor?: string | null;
+            linkText?: string | null;
+            linkUrl?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+      /**
+       * Drag to reorder.
+       */
+      cards?:
+        | {
+            title: string;
+            description: string;
+            id?: string | null;
+          }[]
+        | null;
+      /**
+       * Drag to reorder.
+       */
+      twoColCards?:
+        | {
+            title: string;
+            content?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            id?: string | null;
+          }[]
+        | null;
+      disclaimer?: string | null;
+    };
+    director?: {
+      show?: boolean | null;
+      className?: string | null;
+      /**
+       * CSS color value (e.g. #FFFFFF, transparent)
+       */
+      backgroundColor?: string | null;
+      textColor?: string | null;
+      eyebrow?: string | null;
+      name?: string | null;
+      bio?: {
+        root: {
+          type: string;
+          children: {
+            type: any;
+            version: number;
+            [k: string]: unknown;
+          }[];
+          direction: ('ltr' | 'rtl') | null;
+          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+          indent: number;
+          version: number;
+        };
+        [k: string]: unknown;
+      } | null;
+      /**
+       * Drag to reorder.
+       */
+      credentials?:
+        | {
+            text: string;
+            id?: string | null;
+          }[]
+        | null;
+      portrait?: {
+        mobile?: (string | null) | Media;
+        tablet?: (string | null) | Media;
+        desktop?: (string | null) | Media;
+        large?: (string | null) | Media;
+        alt?: string | null;
+      };
+    };
+    attorneys?: {
+      show?: boolean | null;
+      className?: string | null;
+      /**
+       * CSS color value (e.g. #FFFFFF, transparent)
+       */
+      backgroundColor?: string | null;
+      textColor?: string | null;
+      eyebrow?: string | null;
+      heading?: string | null;
+      lede?: {
+        root: {
+          type: string;
+          children: {
+            type: any;
+            version: number;
+            [k: string]: unknown;
+          }[];
+          direction: ('ltr' | 'rtl') | null;
+          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+          indent: number;
+          version: number;
+        };
+        [k: string]: unknown;
+      } | null;
+      whyRefer?: {
+        title?: string | null;
+        /**
+         * Drag to reorder.
+         */
+        items?:
+          | {
+              text: string;
+              id?: string | null;
+            }[]
+          | null;
+      };
+      coordination?: {
+        title?: string | null;
+        /**
+         * Drag to reorder.
+         */
+        items?:
+          | {
+              text: string;
+              id?: string | null;
+            }[]
+          | null;
+        note?: string | null;
+      };
+      facilityShot?: {
+        image?: {
+          mobile?: (string | null) | Media;
+          tablet?: (string | null) | Media;
+          desktop?: (string | null) | Media;
+          large?: (string | null) | Media;
+          alt?: string | null;
+        };
+        caption?: string | null;
+      };
+      referral?: {
+        eyebrow?: string | null;
+        heading?: string | null;
+        text?: string | null;
+        /**
+         * Drag to reorder.
+         */
+        details?:
+          | {
+              term: string;
+              description: string;
+              id?: string | null;
+            }[]
+          | null;
+        buttonText?: string | null;
+      };
+    };
+    ctaBand: {
+      show?: boolean | null;
+      className?: string | null;
+      /**
+       * CSS color value (e.g. #FFFFFF, transparent)
+       */
+      backgroundColor?: string | null;
+      textColor?: string | null;
+      heading: string;
+      text?: string | null;
+      buttonText?: string | null;
+    };
+  };
+  aboutPage?: {
+    /**
+     * Drag to set the order these sections render in on this page.
+     */
+    sectionOrder?:
+      | {
+          section: 'intro' | 'firstVisit' | 'team';
+          id?: string | null;
+        }[]
+      | null;
+    /**
+     * Drag the ⠿ handle to reorder.
+     */
+    jumpLinks?:
+      | {
+          label: string;
+          url: string;
+          id?: string | null;
+        }[]
+      | null;
+    intro?: {
+      show?: boolean | null;
+      className?: string | null;
+      /**
+       * CSS color value (e.g. #FFFFFF, transparent)
+       */
+      backgroundColor?: string | null;
+      textColor?: string | null;
+      eyebrow?: string | null;
+      heading?: string | null;
+      /**
+       * Why the practice opened in Lake Mary, and the range of care handled here.
+       */
+      content?: {
+        root: {
+          type: string;
+          children: {
+            type: any;
+            version: number;
+            [k: string]: unknown;
+          }[];
+          direction: ('ltr' | 'rtl') | null;
+          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+          indent: number;
+          version: number;
+        };
+        [k: string]: unknown;
+      } | null;
+      /**
+       * Drag to reorder.
+       */
+      cards?:
+        | {
+            title: string;
+            description: string;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    firstVisit?: {
+      show?: boolean | null;
+      className?: string | null;
+      /**
+       * CSS color value (e.g. #FFFFFF, transparent)
+       */
+      backgroundColor?: string | null;
+      textColor?: string | null;
+      eyebrow?: string | null;
+      heading?: string | null;
+      lede?: {
+        root: {
+          type: string;
+          children: {
+            type: any;
+            version: number;
+            [k: string]: unknown;
+          }[];
+          direction: ('ltr' | 'rtl') | null;
+          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+          indent: number;
+          version: number;
+        };
+        [k: string]: unknown;
+      } | null;
+      note?: string | null;
+      faqTitle?: string | null;
+      /**
+       * Drag to reorder.
+       */
+      faqItems?:
+        | {
+            term: string;
+            description: string;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    team?: {
+      show?: boolean | null;
+      className?: string | null;
+      /**
+       * CSS color value (e.g. #FFFFFF, transparent)
+       */
+      backgroundColor?: string | null;
+      textColor?: string | null;
+      eyebrow?: string | null;
+      heading?: string | null;
+      lede?: string | null;
+      director?: {
+        name?: string | null;
+        role?: string | null;
+        bio?: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        /**
+         * Drag to reorder.
+         */
+        credentials?:
+          | {
+              text: string;
+              id?: string | null;
+            }[]
+          | null;
+        /**
+         * Drag to reorder.
+         */
+        education?:
+          | {
+              term: string;
+              description: string;
+              id?: string | null;
+            }[]
+          | null;
+        portrait?: {
+          mobile?: (string | null) | Media;
+          tablet?: (string | null) | Media;
+          desktop?: (string | null) | Media;
+          large?: (string | null) | Media;
+          alt?: string | null;
+        };
+      };
+      /**
+       * Drag to reorder.
+       */
+      teamMembers?:
+        | {
+            firstName: string;
+            lastNamePlaceholder?: string | null;
+            titlePlaceholder?: string | null;
+            bio?: string | null;
+            portrait?: {
+              mobile?: (string | null) | Media;
+              tablet?: (string | null) | Media;
+              desktop?: (string | null) | Media;
+              large?: (string | null) | Media;
+              alt?: string | null;
+            };
+            id?: string | null;
+          }[]
+        | null;
+      disclaimer?: string | null;
+    };
+  };
+  servicesPage: {
+    /**
+     * Drag to set the order these sections render in on this page.
+     */
+    sectionOrder?:
+      | {
+          section:
+            | 'jointMap'
+            | 'breadth'
+            | 'specialty'
+            | 'facility'
+            | 'advanced'
+            | 'howWeTreat'
+            | 'conditionStories'
+            | 'scope'
+            | 'conditionIndex';
+          id?: string | null;
+        }[]
+      | null;
+    /**
+     * Drag the ⠿ handle to reorder.
+     */
+    jumpLinks?:
+      | {
+          label: string;
+          url: string;
+          id?: string | null;
+        }[]
+      | null;
+    jointMap?: {
+      show?: boolean | null;
+      className?: string | null;
+      /**
+       * CSS color value (e.g. #FFFFFF, transparent)
+       */
+      backgroundColor?: string | null;
+      textColor?: string | null;
+      eyebrow?: string | null;
+      heading?: string | null;
+      lede?: string | null;
+      figureCaption?: string | null;
+      /**
+       * Fine-tune the (x,y) position of each dot on the 200×400 anatomy SVG. "joint" must match a Joint id below.
+       */
+      figurePoints?:
+        | {
+            joint: string;
+            cx: number;
+            cy: number;
+            id?: string | null;
+          }[]
+        | null;
+      /**
+       * Drag to reorder — this also sets tab order. "id" must be unique and match the Anatomy Diagram Dots above.
+       */
+      joints?:
+        | {
+            id: string;
+            name: string;
+            region?: string | null;
+            body?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            treats?:
+              | {
+                  label: string;
+                  id?: string | null;
+                }[]
+              | null;
+          }[]
+        | null;
+    };
+    breadth?: {
+      show?: boolean | null;
+      className?: string | null;
+      /**
+       * CSS color value (e.g. #FFFFFF, transparent)
+       */
+      backgroundColor?: string | null;
+      textColor?: string | null;
+      eyebrow?: string | null;
+      heading?: string | null;
+      lede?: string | null;
+      /**
+       * Drag to reorder.
+       */
+      chips?:
+        | {
+            label: string;
+            id?: string | null;
+          }[]
+        | null;
+      footnote?: string | null;
+    };
+    specialty?: {
+      show?: boolean | null;
+      className?: string | null;
+      /**
+       * CSS color value (e.g. #FFFFFF, transparent)
+       */
+      backgroundColor?: string | null;
+      textColor?: string | null;
+      eyebrow?: string | null;
+      heading?: string | null;
+      lede?: string | null;
+      /**
+       * Drag to reorder.
+       */
+      specialties?:
+        | {
+            title: string;
+            items?:
+              | {
+                  text: string;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    facility?: {
+      show?: boolean | null;
+      className?: string | null;
+      /**
+       * CSS color value (e.g. #FFFFFF, transparent)
+       */
+      backgroundColor?: string | null;
+      textColor?: string | null;
+      eyebrow?: string | null;
+      heading?: string | null;
+      lede?: string | null;
+      /**
+       * Drag to reorder.
+       */
+      shots?:
+        | {
+            image?: {
+              mobile?: (string | null) | Media;
+              tablet?: (string | null) | Media;
+              desktop?: (string | null) | Media;
+              large?: (string | null) | Media;
+              alt?: string | null;
+            };
+            id?: string | null;
+          }[]
+        | null;
+      caption?: string | null;
+    };
+    advanced?: {
+      show?: boolean | null;
+      className?: string | null;
+      /**
+       * CSS color value (e.g. #FFFFFF, transparent)
+       */
+      backgroundColor?: string | null;
+      textColor?: string | null;
+      eyebrow?: string | null;
+      heading?: string | null;
+      /**
+       * Drag to reorder.
+       */
+      cards?:
+        | {
+            title: string;
+            description: string;
+            id?: string | null;
+          }[]
+        | null;
+      disclaimer?: string | null;
+    };
+    howWeTreat?: {
+      show?: boolean | null;
+      className?: string | null;
+      /**
+       * CSS color value (e.g. #FFFFFF, transparent)
+       */
+      backgroundColor?: string | null;
+      textColor?: string | null;
+      eyebrow?: string | null;
+      heading?: string | null;
+      /**
+       * Drag to reorder.
+       */
+      cards?:
+        | {
+            title: string;
+            description: string;
+            id?: string | null;
+          }[]
+        | null;
+      disclaimer?: string | null;
+    };
+    conditionStories?: {
+      show?: boolean | null;
+      className?: string | null;
+      /**
+       * CSS color value (e.g. #FFFFFF, transparent)
+       */
+      backgroundColor?: string | null;
+      textColor?: string | null;
+      eyebrow?: string | null;
+      heading?: string | null;
+      lede?: string | null;
+      /**
+       * Drag to reorder.
+       */
+      stories?:
+        | {
+            title: string;
+            description: string;
+            chips?:
+              | {
+                  label: string;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    scopeCallout?: {
+      show?: boolean | null;
+      className?: string | null;
+      /**
+       * CSS color value (e.g. #FFFFFF, transparent)
+       */
+      backgroundColor?: string | null;
+      textColor?: string | null;
+      eyebrow?: string | null;
+      heading?: string | null;
+      /**
+       * Original copy references "the wider Ortho & Spine Physicians Group" — keep that phrasing.
+       */
+      content?: {
+        root: {
+          type: string;
+          children: {
+            type: any;
+            version: number;
+            [k: string]: unknown;
+          }[];
+          direction: ('ltr' | 'rtl') | null;
+          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+          indent: number;
+          version: number;
+        };
+        [k: string]: unknown;
+      } | null;
+      emergencyNote?: string | null;
+    };
+    conditionIndex?: {
+      show?: boolean | null;
+      className?: string | null;
+      /**
+       * CSS color value (e.g. #FFFFFF, transparent)
+       */
+      backgroundColor?: string | null;
+      textColor?: string | null;
+      eyebrow?: string | null;
+      heading?: string | null;
+      lede?: string | null;
+      extraCard?: {
+        region?: string | null;
+        title?: string | null;
+        linkText?: string | null;
+      };
+    };
+    ctaBand: {
+      show?: boolean | null;
+      className?: string | null;
+      /**
+       * CSS color value (e.g. #FFFFFF, transparent)
+       */
+      backgroundColor?: string | null;
+      textColor?: string | null;
+      heading: string;
+      text?: string | null;
+      buttonText?: string | null;
+    };
+  };
+  /**
+   * Drag to reorder. This order also drives the Condition Index cards on the Services page and the site navigation for condition pages.
+   */
+  conditions?:
+    | {
+        /**
+         * Used as the page anchor, e.g. "carpal-tunnel" → #carpal-tunnel
+         */
+        slug: string;
+        eyebrow?: string | null;
+        title: string;
+        metaTitle?: string | null;
+        lede?: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        heroButtonText?: string | null;
+        atAGlance?: {
+          joint?: string | null;
+          category?: string | null;
+          treatedWith?: string | null;
+          visitNote?: string | null;
+          costNote?: string | null;
+          alsoTreatNote?: string | null;
+        };
+        symptomsHeading?: string | null;
+        /**
+         * Drag to reorder.
+         */
+        symptoms?:
+          | {
+              text: string;
+              id?: string | null;
+            }[]
+          | null;
+        symptomsFooter?: string | null;
+        whatsHappeningTitle?: string | null;
+        whatsHappeningBody?: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        treatmentHeading?: string | null;
+        /**
+         * Drag to reorder. Descriptions are rich text — add your copy in the editor.
+         */
+        treatmentSteps?:
+          | {
+              number?: string | null;
+              title: string;
+              description?: {
+                root: {
+                  type: string;
+                  children: {
+                    type: any;
+                    version: number;
+                    [k: string]: unknown;
+                  }[];
+                  direction: ('ltr' | 'rtl') | null;
+                  format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                  indent: number;
+                  version: number;
+                };
+                [k: string]: unknown;
+              } | null;
+              id?: string | null;
+            }[]
+          | null;
+        treatmentDisclaimer?: string | null;
+        faqHeading?: string | null;
+        /**
+         * Drag to reorder. Also used for FAQPage structured data.
+         */
+        faq?:
+          | {
+              question: string;
+              answer: string;
+              id?: string | null;
+            }[]
+          | null;
+        relatedHeading?: string | null;
+        /**
+         * Drag to reorder. Enter the "slug" of another condition in this list.
+         */
+        related?:
+          | {
+              slug: string;
+              id?: string | null;
+            }[]
+          | null;
+        ctaHeading?: string | null;
+        ctaText?: string | null;
+        ctaButtonText?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  contactPage: {
+    show?: boolean | null;
+    className?: string | null;
+    /**
+     * CSS color value (e.g. #FFFFFF, transparent)
+     */
+    backgroundColor?: string | null;
+    textColor?: string | null;
+    eyebrow?: string | null;
+    heading?: string | null;
+    lede?: string | null;
+    paymentNote?: {
+      headline?: string | null;
+      detail?: string | null;
+      acceptedPlaceholder?: string | null;
+    };
+    mapNote?: string | null;
+    ctaBand: {
+      show?: boolean | null;
+      className?: string | null;
+      /**
+       * CSS color value (e.g. #FFFFFF, transparent)
+       */
+      backgroundColor?: string | null;
+      textColor?: string | null;
+      heading: string;
+      text?: string | null;
+      buttonText?: string | null;
+    };
+  };
+  footer?: {
+    backgroundColor?: string | null;
+    textColor?: string | null;
+    tagline?: string | null;
+    /**
+     * Drag to reorder columns; drag within a column to reorder its links.
+     */
+    linkColumns?:
+      | {
+          heading: string;
+          links?:
+            | {
+                label: string;
+                url: string;
+                id?: string | null;
+              }[]
+            | null;
+          id?: string | null;
+        }[]
+      | null;
+    /**
+     * Original copy: "We do not bill health insurance. Attorney-referred personal injury clients are seen on a letter of protection; all other patients are self-pay with fees quoted before treatment. Out of network with all health plans, including Medicare and Medicaid. This site is for general information only and is not medical advice. It does not create a physician–patient relationship. If you are having a medical emergency, call 911."
+     */
+    disclaimer?: {
+      root: {
+        type: string;
+        children: {
+          type: any;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    } | null;
+    copyrightText?: string | null;
+    /**
+     * Drag to reorder.
+     */
+    legalLinks?:
+      | {
+          label: string;
+          url?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  /**
+   * Powers the Physician / MedicalClinic JSON-LD. FAQPage JSON-LD per condition should be generated from each condition's FAQ array at build/render time.
+   */
+  structuredData?: {
+    physicianName?: string | null;
+    physicianJobTitle?: string | null;
+    physicianAlumniOf?: string | null;
+    /**
+     * Drag to reorder.
+     */
+    medicalSpecialty?:
+      | {
+          label: string;
+          id?: string | null;
+        }[]
+      | null;
+    /**
+     * Drag to reorder.
+     */
+    knowsAbout?:
+      | {
+          label: string;
+          id?: string | null;
+        }[]
+      | null;
+    clinicName?: string | null;
+    clinicMedicalSpecialty?: string | null;
+    paymentAccepted?: string | null;
+  };
+  seoSettings?: {
+    metaTitle?: string | null;
+    metaDescription?: string | null;
+    ogImage?: (string | null) | Media;
+    canonicalUrl?: string | null;
+    /**
+     * Currently noindex,nofollow to match the draft-for-review state of this site.
+     */
+    robots?: ('index,follow' | 'noindex,follow' | 'index,nofollow' | 'noindex,nofollow') | null;
+  };
+  accessibilitySettings?: {
+    skipToContent?: boolean | null;
+    focusVisibleColor?: string | null;
+    contrastMode?: ('normal' | 'high') | null;
+    respectReducedMotion?: boolean | null;
+  };
+  mobileSettings?: {
+    tabletBreakpoint?: string | null;
+    mobileBreakpoint?: string | null;
+    mobileStackSections?: boolean | null;
+  };
+  ctaSettings?: {
+    enableStickyCTA?: boolean | null;
+    stickyCTAText?: string | null;
+    stickyCTAPosition?: ('bottom-right' | 'bottom-center') | null;
+    ctaBackgroundColor?: string | null;
+    ctaTextColor?: string | null;
+  };
+  advancedSettings?: {
+    customCSS?: string | null;
+    customJS?: string | null;
+    lazyLoadImages?: boolean | null;
+  };
+  /**
+   * Toggle to enable/disable this component.
+   */
+  isActive?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -1214,6 +2427,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'ortho-spine-page-component';
         value: string | OrthoSpinePageComponent;
+      } | null)
+    | ({
+        relationTo: 'new-ortho-spine-page-component';
+        value: string | NewOrthoSpinePageComponent;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -1919,6 +3136,866 @@ export interface OrthoSpinePageComponentSelect<T extends boolean = true> {
     | {
         backgroundColor?: T;
         textColor?: T;
+        linkColumns?:
+          | T
+          | {
+              heading?: T;
+              links?:
+                | T
+                | {
+                    label?: T;
+                    url?: T;
+                    id?: T;
+                  };
+              id?: T;
+            };
+        disclaimer?: T;
+        copyrightText?: T;
+        legalLinks?:
+          | T
+          | {
+              label?: T;
+              url?: T;
+              id?: T;
+            };
+      };
+  structuredData?:
+    | T
+    | {
+        physicianName?: T;
+        physicianJobTitle?: T;
+        physicianAlumniOf?: T;
+        medicalSpecialty?:
+          | T
+          | {
+              label?: T;
+              id?: T;
+            };
+        knowsAbout?:
+          | T
+          | {
+              label?: T;
+              id?: T;
+            };
+        clinicName?: T;
+        clinicMedicalSpecialty?: T;
+        paymentAccepted?: T;
+      };
+  seoSettings?:
+    | T
+    | {
+        metaTitle?: T;
+        metaDescription?: T;
+        ogImage?: T;
+        canonicalUrl?: T;
+        robots?: T;
+      };
+  accessibilitySettings?:
+    | T
+    | {
+        skipToContent?: T;
+        focusVisibleColor?: T;
+        contrastMode?: T;
+        respectReducedMotion?: T;
+      };
+  mobileSettings?:
+    | T
+    | {
+        tabletBreakpoint?: T;
+        mobileBreakpoint?: T;
+        mobileStackSections?: T;
+      };
+  ctaSettings?:
+    | T
+    | {
+        enableStickyCTA?: T;
+        stickyCTAText?: T;
+        stickyCTAPosition?: T;
+        ctaBackgroundColor?: T;
+        ctaTextColor?: T;
+      };
+  advancedSettings?:
+    | T
+    | {
+        customCSS?: T;
+        customJS?: T;
+        lazyLoadImages?: T;
+      };
+  isActive?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "new-ortho-spine-page-component_select".
+ */
+export interface NewOrthoSpinePageComponentSelect<T extends boolean = true> {
+  componentName?: T;
+  draftBanner?:
+    | T
+    | {
+        show?: T;
+        label?: T;
+        message?: T;
+        backgroundColor?: T;
+        textColor?: T;
+        accentColor?: T;
+      };
+  themeTokens?:
+    | T
+    | {
+        colors?:
+          | T
+          | {
+              ground?: T;
+              surface?: T;
+              surface2?: T;
+              ink?: T;
+              ink2?: T;
+              muted?: T;
+              line?: T;
+              lineStrong?: T;
+              primary?: T;
+              primaryHover?: T;
+              primarySoft?: T;
+              onPrimary?: T;
+              gold?: T;
+              slate?: T;
+              teal?: T;
+              tealSoft?: T;
+            };
+        typography?:
+          | T
+          | {
+              headingFont?: T;
+              bodyFont?: T;
+              monoFont?: T;
+              h1FontSize?: T;
+              h2FontSize?: T;
+              h3FontSize?: T;
+              bodyFontSize?: T;
+              bodyLineHeight?: T;
+            };
+        layout?:
+          | T
+          | {
+              maxWidth?: T;
+              radius?: T;
+              radiusSmall?: T;
+            };
+      };
+  siteContact?:
+    | T
+    | {
+        companyName?: T;
+        phoneDisplay?: T;
+        phoneHref?: T;
+        email?: T;
+        fax?: T;
+        faxNote?: T;
+        website?: T;
+        languagesNote?: T;
+        address?:
+          | T
+          | {
+              street?: T;
+              suite?: T;
+              city?: T;
+              state?: T;
+              zip?: T;
+            };
+        hours?:
+          | T
+          | {
+              weekday?: T;
+              saturday?: T;
+            };
+        parkingNote?: T;
+        mapEmbedUrl?: T;
+        areasServed?:
+          | T
+          | {
+              label?: T;
+              id?: T;
+            };
+      };
+  noticeStrip?:
+    | T
+    | {
+        show?: T;
+        backgroundColor?: T;
+        textColor?: T;
+        accentColor?: T;
+        items?:
+          | T
+          | {
+              boldText?: T;
+              text?: T;
+              id?: T;
+            };
+      };
+  header?:
+    | T
+    | {
+        logo?:
+          | T
+          | {
+              mobile?: T;
+              tablet?: T;
+              desktop?: T;
+              large?: T;
+              alt?: T;
+            };
+        brandAriaLabel?: T;
+        mainNav?:
+          | T
+          | {
+              label?: T;
+              url?: T;
+              id?: T;
+            };
+        ctaButtonText?: T;
+        backgroundColor?: T;
+        textColor?: T;
+      };
+  homePage?:
+    | T
+    | {
+        sectionOrder?:
+          | T
+          | {
+              section?: T;
+              id?: T;
+            };
+        hero?:
+          | T
+          | {
+              show?: T;
+              className?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              eyebrow?: T;
+              heading?: T;
+              lede?: T;
+              primaryButtonText?: T;
+              secondaryButtonText?: T;
+              secondaryButtonUrl?: T;
+              note?: T;
+              card?:
+                | T
+                | {
+                    title?: T;
+                    subtitle?: T;
+                    steps?:
+                      | T
+                      | {
+                          number?: T;
+                          title?: T;
+                          description?: T;
+                          id?: T;
+                        };
+                  };
+            };
+        statsBand?:
+          | T
+          | {
+              show?: T;
+              className?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              stats?:
+                | T
+                | {
+                    number?: T;
+                    label?: T;
+                    id?: T;
+                  };
+            };
+        scope?:
+          | T
+          | {
+              show?: T;
+              className?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              eyebrow?: T;
+              heading?: T;
+              lede?: T;
+              cards?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              footnote?: T;
+            };
+        payment?:
+          | T
+          | {
+              show?: T;
+              className?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              eyebrow?: T;
+              heading?: T;
+              lede?: T;
+              tracks?:
+                | T
+                | {
+                    eyebrow?: T;
+                    title?: T;
+                    description?: T;
+                    accentColor?: T;
+                    linkText?: T;
+                    linkUrl?: T;
+                    id?: T;
+                  };
+              cards?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              twoColCards?:
+                | T
+                | {
+                    title?: T;
+                    content?: T;
+                    id?: T;
+                  };
+              disclaimer?: T;
+            };
+        director?:
+          | T
+          | {
+              show?: T;
+              className?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              eyebrow?: T;
+              name?: T;
+              bio?: T;
+              credentials?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              portrait?:
+                | T
+                | {
+                    mobile?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    large?: T;
+                    alt?: T;
+                  };
+            };
+        attorneys?:
+          | T
+          | {
+              show?: T;
+              className?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              eyebrow?: T;
+              heading?: T;
+              lede?: T;
+              whyRefer?:
+                | T
+                | {
+                    title?: T;
+                    items?:
+                      | T
+                      | {
+                          text?: T;
+                          id?: T;
+                        };
+                  };
+              coordination?:
+                | T
+                | {
+                    title?: T;
+                    items?:
+                      | T
+                      | {
+                          text?: T;
+                          id?: T;
+                        };
+                    note?: T;
+                  };
+              facilityShot?:
+                | T
+                | {
+                    image?:
+                      | T
+                      | {
+                          mobile?: T;
+                          tablet?: T;
+                          desktop?: T;
+                          large?: T;
+                          alt?: T;
+                        };
+                    caption?: T;
+                  };
+              referral?:
+                | T
+                | {
+                    eyebrow?: T;
+                    heading?: T;
+                    text?: T;
+                    details?:
+                      | T
+                      | {
+                          term?: T;
+                          description?: T;
+                          id?: T;
+                        };
+                    buttonText?: T;
+                  };
+            };
+        ctaBand?:
+          | T
+          | {
+              show?: T;
+              className?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              heading?: T;
+              text?: T;
+              buttonText?: T;
+            };
+      };
+  aboutPage?:
+    | T
+    | {
+        sectionOrder?:
+          | T
+          | {
+              section?: T;
+              id?: T;
+            };
+        jumpLinks?:
+          | T
+          | {
+              label?: T;
+              url?: T;
+              id?: T;
+            };
+        intro?:
+          | T
+          | {
+              show?: T;
+              className?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              eyebrow?: T;
+              heading?: T;
+              content?: T;
+              cards?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+            };
+        firstVisit?:
+          | T
+          | {
+              show?: T;
+              className?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              eyebrow?: T;
+              heading?: T;
+              lede?: T;
+              note?: T;
+              faqTitle?: T;
+              faqItems?:
+                | T
+                | {
+                    term?: T;
+                    description?: T;
+                    id?: T;
+                  };
+            };
+        team?:
+          | T
+          | {
+              show?: T;
+              className?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              eyebrow?: T;
+              heading?: T;
+              lede?: T;
+              director?:
+                | T
+                | {
+                    name?: T;
+                    role?: T;
+                    bio?: T;
+                    credentials?:
+                      | T
+                      | {
+                          text?: T;
+                          id?: T;
+                        };
+                    education?:
+                      | T
+                      | {
+                          term?: T;
+                          description?: T;
+                          id?: T;
+                        };
+                    portrait?:
+                      | T
+                      | {
+                          mobile?: T;
+                          tablet?: T;
+                          desktop?: T;
+                          large?: T;
+                          alt?: T;
+                        };
+                  };
+              teamMembers?:
+                | T
+                | {
+                    firstName?: T;
+                    lastNamePlaceholder?: T;
+                    titlePlaceholder?: T;
+                    bio?: T;
+                    portrait?:
+                      | T
+                      | {
+                          mobile?: T;
+                          tablet?: T;
+                          desktop?: T;
+                          large?: T;
+                          alt?: T;
+                        };
+                    id?: T;
+                  };
+              disclaimer?: T;
+            };
+      };
+  servicesPage?:
+    | T
+    | {
+        sectionOrder?:
+          | T
+          | {
+              section?: T;
+              id?: T;
+            };
+        jumpLinks?:
+          | T
+          | {
+              label?: T;
+              url?: T;
+              id?: T;
+            };
+        jointMap?:
+          | T
+          | {
+              show?: T;
+              className?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              eyebrow?: T;
+              heading?: T;
+              lede?: T;
+              figureCaption?: T;
+              figurePoints?:
+                | T
+                | {
+                    joint?: T;
+                    cx?: T;
+                    cy?: T;
+                    id?: T;
+                  };
+              joints?:
+                | T
+                | {
+                    id?: T;
+                    name?: T;
+                    region?: T;
+                    body?: T;
+                    treats?:
+                      | T
+                      | {
+                          label?: T;
+                          id?: T;
+                        };
+                  };
+            };
+        breadth?:
+          | T
+          | {
+              show?: T;
+              className?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              eyebrow?: T;
+              heading?: T;
+              lede?: T;
+              chips?:
+                | T
+                | {
+                    label?: T;
+                    id?: T;
+                  };
+              footnote?: T;
+            };
+        specialty?:
+          | T
+          | {
+              show?: T;
+              className?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              eyebrow?: T;
+              heading?: T;
+              lede?: T;
+              specialties?:
+                | T
+                | {
+                    title?: T;
+                    items?:
+                      | T
+                      | {
+                          text?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+            };
+        facility?:
+          | T
+          | {
+              show?: T;
+              className?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              eyebrow?: T;
+              heading?: T;
+              lede?: T;
+              shots?:
+                | T
+                | {
+                    image?:
+                      | T
+                      | {
+                          mobile?: T;
+                          tablet?: T;
+                          desktop?: T;
+                          large?: T;
+                          alt?: T;
+                        };
+                    id?: T;
+                  };
+              caption?: T;
+            };
+        advanced?:
+          | T
+          | {
+              show?: T;
+              className?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              eyebrow?: T;
+              heading?: T;
+              cards?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              disclaimer?: T;
+            };
+        howWeTreat?:
+          | T
+          | {
+              show?: T;
+              className?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              eyebrow?: T;
+              heading?: T;
+              cards?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              disclaimer?: T;
+            };
+        conditionStories?:
+          | T
+          | {
+              show?: T;
+              className?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              eyebrow?: T;
+              heading?: T;
+              lede?: T;
+              stories?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    chips?:
+                      | T
+                      | {
+                          label?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+            };
+        scopeCallout?:
+          | T
+          | {
+              show?: T;
+              className?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              eyebrow?: T;
+              heading?: T;
+              content?: T;
+              emergencyNote?: T;
+            };
+        conditionIndex?:
+          | T
+          | {
+              show?: T;
+              className?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              eyebrow?: T;
+              heading?: T;
+              lede?: T;
+              extraCard?:
+                | T
+                | {
+                    region?: T;
+                    title?: T;
+                    linkText?: T;
+                  };
+            };
+        ctaBand?:
+          | T
+          | {
+              show?: T;
+              className?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              heading?: T;
+              text?: T;
+              buttonText?: T;
+            };
+      };
+  conditions?:
+    | T
+    | {
+        slug?: T;
+        eyebrow?: T;
+        title?: T;
+        metaTitle?: T;
+        lede?: T;
+        heroButtonText?: T;
+        atAGlance?:
+          | T
+          | {
+              joint?: T;
+              category?: T;
+              treatedWith?: T;
+              visitNote?: T;
+              costNote?: T;
+              alsoTreatNote?: T;
+            };
+        symptomsHeading?: T;
+        symptoms?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        symptomsFooter?: T;
+        whatsHappeningTitle?: T;
+        whatsHappeningBody?: T;
+        treatmentHeading?: T;
+        treatmentSteps?:
+          | T
+          | {
+              number?: T;
+              title?: T;
+              description?: T;
+              id?: T;
+            };
+        treatmentDisclaimer?: T;
+        faqHeading?: T;
+        faq?:
+          | T
+          | {
+              question?: T;
+              answer?: T;
+              id?: T;
+            };
+        relatedHeading?: T;
+        related?:
+          | T
+          | {
+              slug?: T;
+              id?: T;
+            };
+        ctaHeading?: T;
+        ctaText?: T;
+        ctaButtonText?: T;
+        id?: T;
+      };
+  contactPage?:
+    | T
+    | {
+        show?: T;
+        className?: T;
+        backgroundColor?: T;
+        textColor?: T;
+        eyebrow?: T;
+        heading?: T;
+        lede?: T;
+        paymentNote?:
+          | T
+          | {
+              headline?: T;
+              detail?: T;
+              acceptedPlaceholder?: T;
+            };
+        mapNote?: T;
+        ctaBand?:
+          | T
+          | {
+              show?: T;
+              className?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              heading?: T;
+              text?: T;
+              buttonText?: T;
+            };
+      };
+  footer?:
+    | T
+    | {
+        backgroundColor?: T;
+        textColor?: T;
+        tagline?: T;
         linkColumns?:
           | T
           | {
