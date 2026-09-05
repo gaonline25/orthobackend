@@ -34,6 +34,7 @@ export default buildConfig({
     'https://ortho-fl.web.app',
     'https://ortho-36975.web.app',
     'https://orthoandspinephysiciansgroup.com',
+    'https://ortho-36975.web.app',
   ],
   sharp,
   plugins: [],
