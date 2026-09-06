@@ -30,6 +30,7 @@ export default buildConfig({
     url: process.env.DATABASE_URL || '',
   }),
   cors: [
+    'http://localhost:3000',
     'https://orthobackend-nu.vercel.app',
     'https://ortho-fl.web.app',
     'https://ortho-36975.web.app',
