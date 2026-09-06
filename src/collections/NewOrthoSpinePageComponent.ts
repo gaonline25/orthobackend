@@ -1958,6 +1958,20 @@ export const OrthoSpinePageComponents: CollectionConfig = {
           type: 'textarea',
           defaultValue: 'Map embed goes here — drop in a Google Maps iframe on the live site',
         },
+        {
+          name: 'mapNote',
+          type: 'textarea',
+          defaultValue: 'Map embed goes here — drop in a Google Maps iframe on the live site',
+          admin: {
+            description:
+              'Fallback text shown when there is no Map Image and no Map Embed URL (in Site Contact Info) set.',
+          },
+        },
+        mediaGroup(
+          'mapImage',
+          'Map Image',
+          'Map showing the Ortho & Spine Physicians Group location in Lake Mary, FL',
+        ),
         ctaBandGroup('ctaBand', {
           heading: 'Calling is the fastest way in.',
           text: "Tell us which joint and how long it's been hurting. We'll book you or point you to the right place.",
