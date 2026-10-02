@@ -1342,6 +1342,13 @@ export interface NewOrthoSpinePageComponent {
       backgroundColor?: string | null;
       textColor?: string | null;
       eyebrow?: string | null;
+      image?: {
+        mobile?: (string | null) | Media;
+        tablet?: (string | null) | Media;
+        desktop?: (string | null) | Media;
+        large?: (string | null) | Media;
+        alt?: string | null;
+      };
       heading?: string | null;
       lede?: {
         root: {
@@ -2260,13 +2267,6 @@ export interface NewOrthoSpinePageComponent {
       acceptedPlaceholder?: string | null;
     };
     mapNote?: string | null;
-    mapImage?: {
-      mobile?: (string | null) | Media;
-      tablet?: (string | null) | Media;
-      desktop?: (string | null) | Media;
-      large?: (string | null) | Media;
-      alt?: string | null;
-    };
     ctaBand: {
       show?: boolean | null;
       className?: string | null;
@@ -3382,6 +3382,15 @@ export interface NewOrthoSpinePageComponentSelect<T extends boolean = true> {
               backgroundColor?: T;
               textColor?: T;
               eyebrow?: T;
+              image?:
+                | T
+                | {
+                    mobile?: T;
+                    tablet?: T;
+                    desktop?: T;
+                    large?: T;
+                    alt?: T;
+                  };
               heading?: T;
               lede?: T;
               primaryButtonText?: T;
@@ -3985,15 +3994,6 @@ export interface NewOrthoSpinePageComponentSelect<T extends boolean = true> {
               acceptedPlaceholder?: T;
             };
         mapNote?: T;
-        mapImage?:
-          | T
-          | {
-              mobile?: T;
-              tablet?: T;
-              desktop?: T;
-              large?: T;
-              alt?: T;
-            };
         ctaBand?:
           | T
           | {

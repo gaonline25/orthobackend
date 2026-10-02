@@ -596,6 +596,7 @@ export const OrthoSpinePageComponents: CollectionConfig = {
               type: 'text',
               defaultValue: '115 International Pkwy · Lake Mary, Florida',
             },
+            mediaGroup('image', 'Image', 'Hero image'),
             { name: 'heading', type: 'text', defaultValue: 'If it hurts to move, start here.' },
             richBlank('lede', 'Lede'),
             { name: 'primaryButtonText', type: 'text', defaultValue: 'Call' },
@@ -680,6 +681,7 @@ export const OrthoSpinePageComponents: CollectionConfig = {
               type: 'text',
               defaultValue: 'If a joint, tendon or nerve is involved, we most likely treat it.',
             },
+            mediaGroup('image', 'Image', 'Our scope image'),
             richBlank('lede', 'Lede'),
             cardsArray('cards', 'Scope Cards', [
               {
