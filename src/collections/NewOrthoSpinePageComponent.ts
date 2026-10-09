@@ -733,7 +733,7 @@ export const OrthoSpinePageComponents: CollectionConfig = {
                 { name: 'eyebrow', type: 'text' },
                 { name: 'title', type: 'text', required: true },
                 { name: 'description', type: 'textarea', required: true },
-                mediaGroup('image', 'Image', 'Payment image'),
+
                 {
                   name: 'accentColor',
                   type: 'text',
@@ -798,6 +798,7 @@ export const OrthoSpinePageComponents: CollectionConfig = {
               defaultValue:
                 'We are out of network with all health plans, including Medicare and Medicaid, and do not file claims on your behalf. Letters of protection apply to attorney-referred personal injury matters only and are accepted at our discretion. Confirm the arrangement that applies to you when you call.',
             },
+            mediaGroup('image', 'Image', 'Payment image'),
           ],
         },
         {
@@ -806,7 +807,11 @@ export const OrthoSpinePageComponents: CollectionConfig = {
           label: 'Looking for Relief',
           fields: [
             ...sectionStyleFields('band'),
-            { name: 'eyebrow', type: 'text', defaultValue: 'Looking for Relief? Start With Care Designed Around You.' },
+            {
+              name: 'eyebrow',
+              type: 'text',
+              defaultValue: 'Looking for Relief? Start With Care Designed Around You.',
+            },
             {
               name: 'heading',
               type: 'text',
